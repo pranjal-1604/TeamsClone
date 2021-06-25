@@ -1,0 +1,154 @@
+/* .class-main{ 
+    font-family: 'Montserrat';
+    color:grey;
+    
+  }
+
+  hr{
+    color:rgb(112, 101, 101);
+    width: 100%;
+  }
+  .container
+  {
+    margin: 40px 0px 20px 50px;
+    #margin: 60px auto;
+    background: #fff;
+    padding: 0;
+    border-radius: 7px;
+  }
+  .contacts-tray{
+    background-color: #eee;
+    height:70px;
+    border-radius: 10px;
+    border:#eee 1px;
+    
+    
+  }
+  .chat-tray{
+    background-color: #eee;
+    border-radius: 10px;
+    padding: 10px 15px;
+    height:70px;
+    width:132%;
+    display: flex;
+    vertical-align: baseline;
+    margin-left: 10px;
+    
+  }
+  .nav-menu{
+    background-color: #6264A7;
+    height:45px;
+    
+  }
+  .heading{
+    color:white;
+    height:10px;
+    margin-bottom:19px;
+    padding-left: 2px;
+    font-weight: bold;
+    
+  }
+  .description{
+  font-family: 'Montserrat-thick';
+  font-size: large;
+  color: black;
+  display:inline-block;
+  
+  }
+  .searching{
+    margin-left: 400px;
+    width:50%;
+  }
+  .contact{
+    padding:10px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+  .search-bar
+  {
+    background-color: whitesmoke;
+    padding:10px; 
+    margin-top:2px;
+    margin-bottom: 0px;
+   
+  }
+  .search-area{
+    background: white;
+    padding: 8px 25px 0 0;
+   
+  }
+  input{
+    border:none;
+    width:80%;
+    
+  }
+  .search-icon{
+    color: grey;
+    vertical-align: middle;
+  }*/
+  .contact-image{
+    margin:20px;
+    height: 60px;
+    width:60px;
+    border-radius:50px;
+    border-style:ridge;
+    vertical-align: middle;
+   } 
+
+   .nav-menu{
+    background-color: #6264A7;
+    height:50px;
+    color:white;
+    
+  }
+  .brand{
+    color:white;
+    padding: 4px 0 0 6px;
+    font-family: 'Monteserrat-thin';
+   }
+  .current-contact{
+     background-color: #eee;
+     border-radius: 10px;
+  }
+  .timestamp{
+    float:right;
+  }
+  .icons{
+    vertical-align:top;
+    float:right;
+    color:gray;
+  }
+  .contacts{
+    
+    background-color: #eee;
+    border-radius:10px;
+    color:black;
+    font-size: 20px;
+    font-family: 'Monteserrat-thick';
+    font-weight: 600;
+    padding-top: 30px;
+    height:97px;
+  }
+  /* 
+  .friend-box{
+    padding: 10px 15px;h3
+    display: flex;
+    vertical-align: baseline;
+    background: #fff;
+    transition: .3s ease;
+  }
+  .name{
+    color:black;
+    font-family: 'Montserrat-thick';
+    font-weight: bold;
+  }
+  
+  .time , .message{
+    color:grey;
+  }
+  .text-message {
+    margin-left: 12px;
+    color:grey;
+    width: 70%;
+  }*/
+  
