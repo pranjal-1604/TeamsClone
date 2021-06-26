@@ -1,11 +1,15 @@
-import '../styling/video.css'
+import "../styling/video.css";
 import { Card, Navbar } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import VideoPlayer from "./VideoPlayer";
+import Options from "./Options";
+import Notifications from "./Notifications";
+
+
 
 function Video() {
   return (
-    <div style={{backgroundColor: "black"}}>
+    <div style={{ backgroundColor: "black" }}>
       <Card>
         <div className="navigation-menu">
           <Navbar bg="dark" expand="lg">
@@ -27,10 +31,14 @@ function Video() {
               <Button variant="danger">Leave</Button>
             </span>
           </Navbar>
+          
           <VideoPlayer />
+          <Options />
+          <Notifications />
+            
+         
         </div>
       </Card>
-      
     </div>
   );
 }

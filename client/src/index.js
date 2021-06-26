@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
-import App from "./App";
 import { ContextProvider } from "./SocketContext";
+import App from "./App";
 
 ReactDOM.render(
   <ContextProvider>
