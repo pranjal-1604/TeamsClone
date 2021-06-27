@@ -2,8 +2,8 @@ import MainNav from "./MainNav";
 import ContactCard from "./ContactCard";
 import ContactMenu from "./ContactMenu";
 import { Row, Col, Card } from "react-bootstrap";
-
 import SearchContact from "./SearchContact";
+
 
 function Main() {
   return (

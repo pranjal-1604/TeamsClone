@@ -12,56 +12,53 @@ function Options({children}) {
   const [idToCall, setIdToCall] = useState("");
   return (
     <Card>
-      <Form>
-        <Row>
-          <Col xs={12} md={6}>
+      
+        <Row className="p-4 justify-content-center">
+          <Col xs={12} md={6} className="justify-content-center" >
             <h5>Account Info</h5>
+            <Form inline>
             <Form.Control
               placeholder="Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
+            <CopyToClipboard text={me}>
+              <Button variant="primary">
+                Copy Your ID
+              </Button>
+            </CopyToClipboard>
+            </Form>
           </Col>
           <Col xs={12} md={6}>
             <h5>Make a call</h5>
+            <Form inline>
             <Form.Control
               placeholder="ID to call"
               value={idToCall}
               onChange={(e) => setIdToCall(e.target.value)}
             />
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12} md={6}>
-            {console.log(me)}
-            <CopyToClipboard text={me}>
-              <Button variant="contained" color="primary">
-                Copy Your ID
-              </Button>
-            </CopyToClipboard>
-          </Col>
-          <Col xs={12} md={6}>
             {callAccepted && !callEnded ? (
               <Button
-                variant="contained"
-                color="secondary"
+                variant="secondary"
+         
                 onClick={leaveCall}
               >
                 Hang Up
               </Button>
             ) : (
               <Button
-                variant="contained"
-                color="primary"
+                variant="primary"
+                
                 
                 onClick={() => callUser(idToCall)}
               >
                 Call
               </Button>
             )}
+            </Form>
           </Col>
         </Row>
-      </Form>
+      
       {children}
     </Card>
   );

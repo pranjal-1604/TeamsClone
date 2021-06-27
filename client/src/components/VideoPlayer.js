@@ -12,7 +12,7 @@ function VideoPlayer() {
         <Col xs={12} md={6}>
           <Card bg="danger" className="mx-3 mt-2 mb-3">
             <h5>{name || 'Name'}</h5>
-            <video playsInline muted ref={myVideo}  autoPlay />
+            <video playsInline muted ref={myVideo} style={{padding:"10px"}} autoPlay />
           </Card>
         </Col>
       )}

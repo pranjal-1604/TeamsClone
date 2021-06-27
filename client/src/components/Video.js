@@ -1,4 +1,5 @@
 import "../styling/video.css";
+import { ContextProvider } from "../SocketContext";
 import { Card, Navbar } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import VideoPlayer from "./VideoPlayer";
@@ -10,6 +11,7 @@ import Notifications from "./Notifications";
 function Video() {
   return (
     <div style={{ backgroundColor: "black" }}>
+    <ContextProvider>
       <Card>
         <div className="navigation-menu">
           <Navbar bg="dark" expand="lg">
@@ -39,6 +41,7 @@ function Video() {
          
         </div>
       </Card>
+      </ContextProvider>
     </div>
   );
 }
