@@ -33,9 +33,9 @@ function Video() {
           </Navbar>
           
           <VideoPlayer />
-          <Options />
-          <Notifications />
-            
+          <Options>
+            <Notifications />
+          </Options>
          
         </div>
       </Card>

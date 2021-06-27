@@ -4,8 +4,9 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Row, Col, Card } from "react-bootstrap";
 import { SocketContext } from "../SocketContext";
+import Notifications from "./Notifications";
 
-function Options() {
+function Options({children}) {
   const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } =
     useContext(SocketContext);
   const [idToCall, setIdToCall] = useState("");
@@ -27,12 +28,12 @@ function Options() {
               placeholder="ID to call"
               value={idToCall}
               onChange={(e) => setIdToCall(e.target.value)}
-              fullWidth
             />
           </Col>
         </Row>
         <Row>
           <Col xs={12} md={6}>
+            {console.log(me)}
             <CopyToClipboard text={me}>
               <Button variant="contained" color="primary">
                 Copy Your ID
@@ -44,7 +45,6 @@ function Options() {
               <Button
                 variant="contained"
                 color="secondary"
-                fullWidth
                 onClick={leaveCall}
               >
                 Hang Up
@@ -53,7 +53,7 @@ function Options() {
               <Button
                 variant="contained"
                 color="primary"
-                fullWidth
+                
                 onClick={() => callUser(idToCall)}
               >
                 Call
@@ -62,6 +62,7 @@ function Options() {
           </Col>
         </Row>
       </Form>
+      {children}
     </Card>
   );
 }
