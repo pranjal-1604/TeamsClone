@@ -39,7 +39,7 @@ function Options({children}) {
             />
             {callAccepted && !callEnded ? (
               <Button
-                variant="secondary"
+                variant="danger"
          
                 onClick={leaveCall}
               >

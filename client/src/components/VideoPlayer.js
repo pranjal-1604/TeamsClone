@@ -21,7 +21,7 @@ function VideoPlayer() {
         <Col xs={12} md={6}>
           <Card bg="danger" className="mx-3 mt-2 mb-3">
             <h5>{call.name || 'Name'}</h5>
-            <video playsInline ref={userVideo} autoPlay />
+            <video playsInline ref={userVideo} style={{padding:"10px"}}autoPlay />
           </Card>
         </Col>
       )}
