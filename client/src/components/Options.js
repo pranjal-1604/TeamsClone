@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Row, Col, Card } from "react-bootstrap";
 import { SocketContext } from "../SocketContext";
-import Notifications from "./Notifications";
+
 
 function Options({children}) {
   const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } =
