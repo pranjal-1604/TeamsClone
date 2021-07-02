@@ -33,6 +33,7 @@ function Options({children}) {
             <CopyToClipboard text={me}>
               <Button variant="primary">
                 Copy Your ID
+                <i className="material-icons content-copy" style={{verticalAlign:"middle" , marginLeft:"6px"}}>content_copy</i>
               </Button>
             </CopyToClipboard>
             </Form>
@@ -74,15 +75,15 @@ function Options({children}) {
          
                 onClick={leaveCall}
               >
+               <i className="material-icons call-end" style={{verticalAlign:"middle" , marginRight:"6px"}}>call_end</i>
                 Hang Up
               </Button>
             ) : (
               <Button
                 variant="primary"
-                
-                
                 onClick={() => callUser(idToCall)}
               >
+               <i className="material-icons call" style={{verticalAlign:"middle" , marginRight:"6px"}}>call</i>
                 Call
               </Button>
             )}

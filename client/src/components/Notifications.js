@@ -6,7 +6,10 @@ import { SocketContext } from '../SocketContext';
 const Notifications = () => {
     const { answerCall, call, callAccepted } = useContext(SocketContext);
     const [rejected,setRejected] = useState(false);
-    const handleReject = () => setRejected(true);
+    const handleReject = () => {
+      setRejected(true);
+      window.location.reload();
+    }
   
     return (
       <>

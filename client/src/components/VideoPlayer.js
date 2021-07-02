@@ -1,4 +1,5 @@
 import { Card, Row, Col } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 import { SocketContext } from "../SocketContext";
 import { useContext } from "react";
 
@@ -19,7 +20,7 @@ function VideoPlayer() {
             <h5>{name || 'Name'}</h5>
             <video playsInline muted ref={myVideo} style={{padding:"10px"}} autoPlay />
             <div>
-            <div
+            <Button variant = "secondary"
               onClick={() => {
                 updateMic();
               }}
@@ -27,12 +28,12 @@ function VideoPlayer() {
             >
               <i
                 className={`fa fa-microphone${myMicStatus ? "" : "-slash"}`}
-                style={{ transform: "scaleX(-1)" }}
+                style={{ transform: "scaleX(-1)" , color: "black"}}
                 aria-label={`${myMicStatus ? "mic on" : "mic off"}`}
                 aria-hidden="true"
               ></i>
-            </div>
-            <div
+            </Button>
+            <Button variant = "secondary"
               onClick={() => {
                 updateVideo();
               }}
@@ -40,12 +41,12 @@ function VideoPlayer() {
             >
               <i
                 className={`fas fa-video${myVdoStatus ? "" : "-slash"}`}
-                style={{ transform: "scaleX(-1)" }}
+                style={{ transform: "scaleX(-1)" , color: "black" }}
                 aria-label={`${myVdoStatus ? "video on" : "video off"}`}
                 aria-hidden="true"
               ></i>
 
-            </div>
+            </Button>
             </div>
           </Card>
         </Col>
