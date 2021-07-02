@@ -27,7 +27,16 @@ io.on("connection", (socket) => {
 		io.to(userToCall).emit("callUser", { signal: signalData, from, name });
 	});
 
+	socket.on("updateMyMedia", ({ type, currentMediaStatus }) => {
+		console.log("updateMyMedia");
+		socket.broadcast.emit("updateUserMedia", { type, currentMediaStatus });
+	  });
+
 	socket.on("answerCall", (data) => {
+		socket.broadcast.emit("updateUserMedia", {
+			type: data.type,
+			currentMediaStatus: data.myMediaStatus,
+		  });
 		io.to(data.to).emit("callAccepted", data.signal)
 	});
 });

@@ -3,7 +3,12 @@ import { SocketContext } from "../SocketContext";
 import { useContext } from "react";
 
 function VideoPlayer() {
-  const { name, callAccepted, myVideo, userVideo, callEnded, stream, call } =
+  const { name, callAccepted, myVideo, userVideo, callEnded, stream, call , myVdoStatus,
+    userVdoStatus,
+    updateVideo,
+    myMicStatus,
+    userMicStatus,
+    updateMic,} =
     useContext(SocketContext);
   return (
     <div className="vh-100">
@@ -13,7 +18,35 @@ function VideoPlayer() {
           <Card bg="danger" className="mx-3 mt-2 mb-3">
             <h5>{name || 'Name'}</h5>
             <video playsInline muted ref={myVideo} style={{padding:"10px"}} autoPlay />
-           
+            <div>
+            <div
+              onClick={() => {
+                updateMic();
+              }}
+              tabIndex="0"
+            >
+              <i
+                className={`fa fa-microphone${myMicStatus ? "" : "-slash"}`}
+                style={{ transform: "scaleX(-1)" }}
+                aria-label={`${myMicStatus ? "mic on" : "mic off"}`}
+                aria-hidden="true"
+              ></i>
+            </div>
+            <div
+              onClick={() => {
+                updateVideo();
+              }}
+              tabIndex="0"
+            >
+              <i
+                className={`fas fa-video${myVdoStatus ? "" : "-slash"}`}
+                style={{ transform: "scaleX(-1)" }}
+                aria-label={`${myVdoStatus ? "video on" : "video off"}`}
+                aria-hidden="true"
+              ></i>
+
+            </div>
+            </div>
           </Card>
         </Col>
       )}

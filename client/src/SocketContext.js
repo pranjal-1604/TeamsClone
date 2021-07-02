@@ -14,6 +14,10 @@ const ContextProvider = ({ children }) => {
   const [name, setName] = useState('');
   const [call, setCall] = useState({});
   const [me, setMe] = useState('');
+  const [myVdoStatus, setMyVdoStatus] = useState(true);
+  const [userVdoStatus, setUserVdoStatus] = useState();
+  const [myMicStatus, setMyMicStatus] = useState(true);
+  const [userMicStatus, setUserMicStatus] = useState();
 
   const myVideo = useRef();
   const userVideo = useRef();
@@ -30,6 +34,23 @@ const ContextProvider = ({ children }) => {
 
     socket.on('me', (id) => setMe(id));
 
+    socket.on("updateUserMedia", ({ type, currentMediaStatus }) => {
+      if (currentMediaStatus !== null || currentMediaStatus !== []) {
+        switch (type) {
+          case "video":
+            setUserVdoStatus(currentMediaStatus);
+            break;
+          case "mic":
+            setUserMicStatus(currentMediaStatus);
+            break;
+          default:
+            setUserMicStatus(currentMediaStatus[0]);
+            setUserVdoStatus(currentMediaStatus[1]);
+            break;
+        }
+      }
+    });
+
     socket.on('callUser', ({ from, name: callerName, signal }) => {
       setCall({ isReceivingCall: true, from, name: callerName, signal });
     });
@@ -41,7 +62,10 @@ const ContextProvider = ({ children }) => {
     const peer = new Peer({ initiator: false, trickle: false, stream });
 
     peer.on('signal', (data) => {
-      socket.emit('answerCall', { signal: data, to: call.from });
+      socket.emit('answerCall', { signal: data, 
+        to: call.from ,
+        type: "both",
+        myMediaStatus: [myMicStatus, myVdoStatus],});
     });
 
     peer.on('stream', (currentStream) => {
@@ -68,9 +92,34 @@ const ContextProvider = ({ children }) => {
       setCallAccepted(true);
 
       peer.signal(signal);
+      socket.emit("updateMyMedia", {
+        type: "both",
+        currentMediaStatus: [myMicStatus, myVdoStatus],
+      });
     });
 
     connectionRef.current = peer;
+  };
+
+  const updateVideo = () => {
+    setMyVdoStatus((currentStatus) => {
+      socket.emit("updateMyMedia", {
+        type: "video",
+        currentMediaStatus: !currentStatus,
+      });
+      stream.getVideoTracks()[0].enabled = !currentStatus;
+      return !currentStatus;
+    });
+  };
+  const updateMic = () => {
+    setMyMicStatus((currentStatus) => {
+      socket.emit("updateMyMedia", {
+        type: "mic",
+        currentMediaStatus: !currentStatus,
+      });
+      stream.getAudioTracks()[0].enabled = !currentStatus;
+      return !currentStatus;
+    });
   };
 
   const leaveCall = () => {
@@ -95,6 +144,14 @@ const ContextProvider = ({ children }) => {
       callUser,
       leaveCall,
       answerCall,
+      myVdoStatus,
+      setMyVdoStatus,
+      userVdoStatus,
+      setUserVdoStatus,
+      updateVideo,
+      myMicStatus,
+      userMicStatus,
+       updateMic,
     }}
     >
       {children}
