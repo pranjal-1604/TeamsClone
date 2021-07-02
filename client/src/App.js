@@ -11,9 +11,7 @@ function App() {
        
         <Route exact path="/" component={Main} />
         <Route exact path="/video_call" component={Video} />
-        {/* <Main />
-      
-      <Video /> */}
+        
       </Switch>
     </div>
   );

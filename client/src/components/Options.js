@@ -4,6 +4,14 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Row, Col, Card } from "react-bootstrap";
 import { SocketContext } from "../SocketContext";
+import {
+  TwitterIcon,
+  TwitterShareButton,
+  WhatsappShareButton,
+  WhatsappIcon,
+  FacebookIcon,
+  FacebookShareButton,
+} from "react-share";
 
 
 function Options({children}) {
@@ -28,6 +36,29 @@ function Options({children}) {
               </Button>
             </CopyToClipboard>
             </Form>
+            <div>
+            <WhatsappShareButton
+              url={`https://ms-teams-video-chat.netlify.app/`}
+              title={`Join this meeting with the given code ""\n`}
+              separator="Link: "
+              
+            >
+              <WhatsappIcon size={28} round />
+            </WhatsappShareButton>
+            <FacebookShareButton
+              url={`https://ms-teams-video-chat.netlify.app/`}
+              title={`Join this meeting with the given code ""\n`}
+              
+            >
+              <FacebookIcon size={28} round />
+            </FacebookShareButton>
+            <TwitterShareButton
+              url={`https://video-chat-mihir.web.app/`}
+              title={`Join this meeting with the given code  \n`}
+            >
+              <TwitterIcon size={28} round  />
+            </TwitterShareButton>
+            </div>
           </Col>
           <Col xs={12} md={6}>
             <h5>Make a call</h5>

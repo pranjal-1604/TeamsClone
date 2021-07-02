@@ -7,8 +7,8 @@ import Options from "./Options";
 import Notifications from "./Notifications";
 
 
-
 function Video() {
+ 
   return (
     <div style={{ backgroundColor: "black" }}>
     <ContextProvider>

@@ -1,7 +1,6 @@
 import React, { createContext, useState, useRef, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import Peer from 'simple-peer';
-import {Link} from 'react-router-dom';
 
 const SocketContext = createContext();
 
@@ -26,6 +25,7 @@ const ContextProvider = ({ children }) => {
         setStream(currentStream);
 
         myVideo.current.srcObject = currentStream;
+        
       });
 
     socket.on('me', (id) => setMe(id));
