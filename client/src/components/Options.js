@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Alert from 'react-bootstrap/Alert'
 import { Row, Col, Card } from "react-bootstrap";
 import { SocketContext } from "../SocketContext";
 import {
@@ -15,14 +16,17 @@ import {
 
 
 function Options({children}) {
-  const { me, callAccepted, name, setName, callEnded, leaveCall, callUser } =
+  const { me, callAccepted, name, setName, callEnded, leaveCall, callUser ,show ,setShow} =
     useContext(SocketContext);
   const [idToCall, setIdToCall] = useState("");
+ 
   return (
-    <Card>
-      
-        <Row className="p-4 justify-content-center">
-          <Col xs={12} md={6} className="justify-content-center" >
+   <div>
+    <Card style={{backgroundColor:"black" ,margin:"none"}}>
+        <div style={{backgroundColor:"#ffccd4" ,margin:" 0px 40px"}}>
+        <Row className="p-1 justify-content-center ml-2" >
+          <Col  xs={12} md={6} className="justify-content-center" >
+          <div className="mx-auto">
             <h5>Account Info</h5>
             <Form inline>
             <Form.Control
@@ -31,13 +35,14 @@ function Options({children}) {
               onChange={(e) => setName(e.target.value)}
             />
             <CopyToClipboard text={me}>
-              <Button variant="primary">
+              <Button variant="primary"  onClick={() => setShow(true)}>
                 Copy Your ID
                 <i className="material-icons content-copy" style={{verticalAlign:"middle" , marginLeft:"6px"}}>content_copy</i>
               </Button>
             </CopyToClipboard>
+          
             </Form>
-            <div>
+            {/* <div> */}
             <WhatsappShareButton
               url={`https://ms-teams-video-chat.netlify.app/`}
               title={`Join this meeting with the given code ""\n`}
@@ -59,6 +64,7 @@ function Options({children}) {
             >
               <TwitterIcon size={28} round  />
             </TwitterShareButton>
+            {/* </div> */}
             </div>
           </Col>
           <Col xs={12} md={6}>
@@ -90,9 +96,11 @@ function Options({children}) {
             </Form>
           </Col>
         </Row>
+        </div>
       
       {children}
     </Card>
+    </div>
   );
 }
 export default Options;

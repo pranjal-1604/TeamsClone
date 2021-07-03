@@ -1,10 +1,11 @@
-import { Card, Row, Col } from "react-bootstrap";
+import { Container,Card, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { SocketContext } from "../SocketContext";
-import { useContext } from "react";
+import { useContext,useState } from "react";
+import Alert from 'react-bootstrap/Alert'
 
 function VideoPlayer() {
-  const { name, callAccepted, myVideo, userVideo, callEnded, stream, call , myVdoStatus,
+  const { name, callAccepted, myVideo, userVideo, callEnded, stream, call , show, setShow, myVdoStatus,
     userVdoStatus,
     updateVideo,
     myMicStatus,
@@ -16,15 +17,19 @@ function VideoPlayer() {
     <Row style={{backgroundColor:"black"}}>
       {stream && (
         <Col xs={12} md={6}>
-          <Card bg="danger" className="mx-3 mt-2 mb-3">
-            <h5>{name || 'Name'}</h5>
-            <video playsInline muted ref={myVideo} style={{padding:"10px"}} autoPlay />
-            <div>
+        <Container height="200px" >
+          <Card style={{backgroundColor:"rgba(70,71,117,0.4)", borderRadius:"7px"}} className="mx-3 mt-2 mb-1">
+          <h5 style={{color: "grey"}} >{show? <Alert style={{display:"inline-block", height: "10%",paddingTop:"0px", paddingBottom:"0px", align:"center"}} variant="success" onClose={() => setShow(false)} dismissible>
+            <p style={{paddingLeft:"6px" ,}}><i className="material-icons check_circle" style={{verticalAlign:"middle", margin: "2px"}}>check_circle</i>Code Copied successfully</p>
+          </Alert> : name|| 'Name'}</h5>  
+            <video playsInline muted ref={myVideo} style={{width:"100%"} } autoPlay />
+            <div className="mx-auto" style={{marginTop:"4px"}}>
             <Button variant = "secondary"
               onClick={() => {
                 updateMic();
               }}
               tabIndex="0"
+              style={{borderRadius:"20px" ,marginRight:"8px"}}
             >
               <i
                 className={`fa fa-microphone${myMicStatus ? "" : "-slash"}`}
@@ -38,6 +43,7 @@ function VideoPlayer() {
                 updateVideo();
               }}
               tabIndex="0"
+              style={{borderRadius:"30px"}}
             >
               <i
                 className={`fas fa-video${myVdoStatus ? "" : "-slash"}`}
@@ -49,14 +55,15 @@ function VideoPlayer() {
             </Button>
             </div>
           </Card>
+          </Container>
         </Col>
       )}
       
       {callAccepted && !callEnded && (
         <Col xs={12} md={6}>
-          <Card bg="danger" className="mx-3 mt-2 mb-3">
-            <h5>{call.name || 'Name'}</h5>
-            <video playsInline ref={userVideo} style={{padding:"10px"}}autoPlay />
+          <Card style={{backgroundColor:"rgba(70,71,117,0.4)", borderRadius:"7px"}} className="mx-3 mt-2 mb-1">
+            <h5 style={{color: "grey"}}>{call.name || 'Name'}</h5>
+            <video playsInline ref={userVideo} style={{width:"100%", paddingBottom:"20px"}}autoPlay />
           </Card>
         </Col>
       )}

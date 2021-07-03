@@ -1,4 +1,4 @@
-import "../styling/video.css";
+// import "../styling/video.css";
 import { ContextProvider } from "../SocketContext";
 import { Card, Navbar } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
@@ -10,10 +10,10 @@ import Notifications from "./Notifications";
 function Video() {
  
   return (
-    <div style={{ backgroundColor: "black" }}>
+    <div style={{ backgroundColor: "black" ,margin:"none"}}>
     <ContextProvider>
       <Card>
-        <div className="navigation-menu">
+        {/* <div className="navigation-menu">
           <Navbar bg="dark" expand="lg">
             <span className="icons">
               <Button variant="secondary">
@@ -32,14 +32,14 @@ function Video() {
               </Button>
               <Button variant="danger">Leave</Button>
             </span>
-          </Navbar>
+          </Navbar> */}
           
           <VideoPlayer />
           <Options>
             <Notifications />
           </Options>
          
-        </div>
+        {/* </div> */}
       </Card>
       </ContextProvider>
     </div>

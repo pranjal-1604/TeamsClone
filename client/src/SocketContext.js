@@ -18,6 +18,7 @@ const ContextProvider = ({ children }) => {
   const [userVdoStatus, setUserVdoStatus] = useState();
   const [myMicStatus, setMyMicStatus] = useState(true);
   const [userMicStatus, setUserMicStatus] = useState();
+  const [show, setShow] = useState(false);
 
   const myVideo = useRef();
   const userVideo = useRef();
@@ -152,6 +153,8 @@ const ContextProvider = ({ children }) => {
       myMicStatus,
       userMicStatus,
        updateMic,
+       show,
+       setShow
     }}
     >
       {children}
