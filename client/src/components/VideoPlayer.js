@@ -41,8 +41,6 @@ function VideoPlayer() {
                       style={{
                         display: "inline-block",
                         height: "10%",
-                        paddingTop: "0px",
-                        paddingBottom: "0px",
                         align: "center",
                       }}
                       variant="success"
