@@ -6,14 +6,12 @@ import VideoPlayer from "./VideoPlayer";
 import Options from "./Options";
 import Notifications from "./Notifications";
 
-
 function Video() {
- 
   return (
-    <div style={{ backgroundColor: "black" ,margin:"none"}}>
-    <ContextProvider>
-      <Card>
-        {/* <div className="navigation-menu">
+    <div>
+      <ContextProvider>
+        <Card style={{ backgroundColor: "black", margin: "0px" }}>
+          {/* <div className="navigation-menu">
           <Navbar bg="dark" expand="lg">
             <span className="icons">
               <Button variant="secondary">
@@ -33,14 +31,14 @@ function Video() {
               <Button variant="danger">Leave</Button>
             </span>
           </Navbar> */}
-          
+
           <VideoPlayer />
           <Options>
             <Notifications />
           </Options>
-         
-        {/* </div> */}
-      </Card>
+
+          {/* </div> */}
+        </Card>
       </ContextProvider>
     </div>
   );
