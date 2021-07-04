@@ -36,7 +36,7 @@ function VideoPlayer() {
                 className="mx-3 mt-2 mb-1"
               >
                 <h5 style={{ color: "grey" }}>
-                  {show ? (
+                  {/* {show ? (
                     <Alert
                       style={{
                         display: "inline-block",
@@ -44,8 +44,6 @@ function VideoPlayer() {
                         align: "center",
                       }}
                       variant="success"
-                      onClose={() => setShow(false)}
-                      dismissible
                     >
                       <p style={{ paddingLeft: "6px" }}>
                         <i
@@ -59,7 +57,8 @@ function VideoPlayer() {
                     </Alert>
                   ) : (
                     name || "Name"
-                  )}
+                  )} */}
+                  {name || "Name"}
                 </h5>
                 <video
                   playsInline

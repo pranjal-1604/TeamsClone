@@ -57,6 +57,12 @@ const ContextProvider = ({ children }) => {
     });
   }, []);
 
+  const handleVisible = () => {
+    setShow(true)
+    setTimeout(() => { 
+        setShow(false)
+    }, 1000);
+} 
   const answerCall = () => {
     setCallAccepted(true);
 
@@ -154,7 +160,8 @@ const ContextProvider = ({ children }) => {
       userMicStatus,
        updateMic,
        show,
-       setShow
+       setShow,
+       handleVisible
     }}
     >
       {children}

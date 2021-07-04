@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Row, Col, Card } from "react-bootstrap";
 import { SocketContext } from "../SocketContext";
+import Alert from "react-bootstrap/Alert";
 import {
   TwitterIcon,
   TwitterShareButton,
@@ -22,7 +23,9 @@ function Options({ children }) {
     callEnded,
     leaveCall,
     callUser,
+    show,
     setShow,
+    handleVisible,
   } = useContext(SocketContext);
   const [idToCall, setIdToCall] = useState("");
 
@@ -40,7 +43,7 @@ function Options({ children }) {
                   onChange={(e) => setName(e.target.value)}
                 />
                 <CopyToClipboard text={me}>
-                  <Button variant="primary" onClick={() => setShow(true)}>
+                  <Button variant="primary" onClick={handleVisible}>
                     Copy Your ID
                     <i
                       className="material-icons content-copy"
@@ -50,8 +53,29 @@ function Options({ children }) {
                     </i>
                   </Button>
                 </CopyToClipboard>
+                {show && (
+                  <Alert
+                    style={{
+                      display: "inline-block",
+                      textAlign: "center",
+                      borderColor: "green",
+                    }}
+                    variant="success"
+                  >
+                    <p style={{ margin: "0px" }}>
+                      <i
+                        className="material-icons check_circle"
+                        style={{ verticalAlign: "middle", margin: "2px" }}
+                      >
+                        check_circle
+                      </i>
+                      Code Copied successfully
+                    </p>
+                  </Alert>
+                )}
               </Form>
               {/* <div> */}
+
               <WhatsappShareButton
                 url={`https://ms-teams-video-chat.netlify.app/`}
                 title={`Join this meeting with the given code ""\n`}
