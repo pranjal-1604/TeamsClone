@@ -1,7 +1,6 @@
 // import "../styling/video.css";
 import { ContextProvider } from "../SocketContext";
-import { Card, Navbar } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
+import { Card } from "react-bootstrap";
 import VideoPlayer from "./VideoPlayer";
 import Options from "./Options";
 import Notifications from "./Notifications";

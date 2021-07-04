@@ -22,7 +22,6 @@ function Options({ children }) {
     callEnded,
     leaveCall,
     callUser,
-    show,
     setShow,
   } = useContext(SocketContext);
   const [idToCall, setIdToCall] = useState("");
