@@ -2,6 +2,7 @@ import Main from "./components/main";
 import Video from "./components/Video";
 import "./styling/style.css";
 import { Route, Switch } from "react-router-dom";
+import Welcome from "./components/Welcome"
 
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
     <div>
       <Switch>
        
-        <Route exact path="/" component={Main} />
+        <Route exact path="/" component={Welcome} />
         <Route exact path="/video_call" component={Video} />
         
       </Switch>

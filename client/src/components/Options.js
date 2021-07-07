@@ -60,6 +60,7 @@ function Options({ children }) {
                       textAlign: "center",
                       borderColor: "green",
                     }}
+                    className="p-0"
                     variant="success"
                   >
                     <p style={{ margin: "0px" }}>

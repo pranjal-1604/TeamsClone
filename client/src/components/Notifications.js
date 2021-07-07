@@ -23,10 +23,10 @@ const Notifications = () => {
         backdrop="static"
         keyboard={false}
       >
-        <Modal.Header closeButton>
+        <Modal.Header closeButton >
           <Modal.Title>Permission Request</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body >
           <audio src={Teams} loop ref={Audio} autoPlay />
           <h5>
             {call.name ? call.name : "Someone"} is requesting to join the call
@@ -37,7 +37,7 @@ const Notifications = () => {
             alt="user requesting to join meeting"
           />
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer >
           <Button variant="success" onClick={answerCall}>
             Accept
           </Button>
