@@ -24,7 +24,6 @@ function Options({ children }) {
     leaveCall,
     callUser,
     show,
-    setShow,
     handleVisible,
   } = useContext(SocketContext);
   const [idToCall, setIdToCall] = useState("");
@@ -75,8 +74,6 @@ function Options({ children }) {
                   </Alert>
                 )}
               </Form>
-              {/* <div> */}
-
               <WhatsappShareButton
                 url={`https://ms-teams-video-chat.netlify.app/`}
                 title={`Join this meeting with the given code ""\n`}
@@ -96,7 +93,6 @@ function Options({ children }) {
               >
                 <TwitterIcon size={28} round />
               </TwitterShareButton>
-              {/* </div> */}
             </div>
           </Col>
           <Col xs={12} md={6}>

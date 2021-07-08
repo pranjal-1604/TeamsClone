@@ -2,7 +2,6 @@ import { Container, Card, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { SocketContext } from "../SocketContext";
 import { useContext } from "react";
-import Alert from "react-bootstrap/Alert";
 
 function VideoPlayer() {
   const {
@@ -13,13 +12,9 @@ function VideoPlayer() {
     callEnded,
     stream,
     call,
-    show,
-    setShow,
     myVdoStatus,
-    userVdoStatus,
     updateVideo,
     myMicStatus,
-    userMicStatus,
     updateMic,
   } = useContext(SocketContext);
   return (
@@ -35,31 +30,7 @@ function VideoPlayer() {
                 }}
                 className="mx-3 mt-2 mb-1"
               >
-                <h5 style={{ color: "grey" }}>
-                  {/* {show ? (
-                    <Alert
-                      style={{
-                        display: "inline-block",
-                        height: "10%",
-                        align: "center",
-                      }}
-                      variant="success"
-                    >
-                      <p style={{ paddingLeft: "6px" }}>
-                        <i
-                          className="material-icons check_circle"
-                          style={{ verticalAlign: "middle", margin: "2px" }}
-                        >
-                          check_circle
-                        </i>
-                        Code Copied successfully
-                      </p>
-                    </Alert>
-                  ) : (
-                    name || "Name"
-                  )} */}
-                  {name || "Name"}
-                </h5>
+                <h5 style={{ color: "grey" }}>{name || "Name"}</h5>
                 <video
                   playsInline
                   muted
