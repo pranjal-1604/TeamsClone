@@ -24,6 +24,8 @@ const ContextProvider = ({ children }) => {
   const connectionRef = useRef();
 
   useEffect(() => {
+
+    //ask permission to access user's camera and microphone 
     navigator.mediaDevices
       .getUserMedia({ video: true, audio: true })
       .then((currentStream) => {
@@ -31,9 +33,11 @@ const ContextProvider = ({ children }) => {
 
         myVideo.current.srcObject = currentStream;
       });
-
+    
+    //set the id emitted by server as my id
     socket.on("me", (id) => setMe(id));
 
+    //updating video/audio status
     socket.on("updateUserMedia", ({ type, currentMediaStatus }) => {
       if (currentMediaStatus !== null || currentMediaStatus !== []) {
         switch (type) {
@@ -56,16 +60,20 @@ const ContextProvider = ({ children }) => {
     });
   }, []);
 
+
   const handleVisible = () => {
     setShow(true);
     setTimeout(() => {
       setShow(false);
     }, 1000);
   };
+
+
   const answerCall = () => {
     setCallAccepted(true);
-
-    const peer = new Peer({ initiator: false, trickle: false, stream });
+    
+    //when the other user initiates the call
+    const peer = new Peer({ initiator: false, trickle: false, stream }); // creating peer instance
 
     peer.on("signal", (data) => {
       socket.emit("answerCall", {
@@ -75,7 +83,8 @@ const ContextProvider = ({ children }) => {
         myMediaStatus: [myMicStatus, myVdoStatus],
       });
     });
-
+    
+    // retreiving the stream recieved from the other user
     peer.on("stream", (currentStream) => {
       userVideo.current.srcObject = currentStream;
     });
@@ -85,6 +94,7 @@ const ContextProvider = ({ children }) => {
     connectionRef.current = peer;
   };
 
+  // when i initiate the call
   const callUser = (id) => {
     const peer = new Peer({ initiator: true, trickle: false, stream });
 
@@ -113,7 +123,8 @@ const ContextProvider = ({ children }) => {
 
     connectionRef.current = peer;
   };
-
+ 
+  // switching camera on/off
   const updateVideo = () => {
     setMyVdoStatus((currentStatus) => {
       socket.emit("updateMyMedia", {
@@ -124,6 +135,8 @@ const ContextProvider = ({ children }) => {
       return !currentStatus;
     });
   };
+
+  // switching mic on/off
   const updateMic = () => {
     setMyMicStatus((currentStatus) => {
       socket.emit("updateMyMedia", {
@@ -140,7 +153,7 @@ const ContextProvider = ({ children }) => {
 
     connectionRef.current.destroy();
 
-    window.location.reload();
+    window.location.reload(); //reload the window when the call ends
   };
 
   return (

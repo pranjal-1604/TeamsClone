@@ -1,6 +1,6 @@
 import { Container, Card, Row, Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import { SocketContext } from "../SocketContext";
+import { SocketContext } from "../../SocketContext";
 import { useContext } from "react";
 
 function VideoPlayer() {

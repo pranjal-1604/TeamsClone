@@ -1,8 +1,8 @@
 import { ContextProvider } from "../SocketContext";
 import { Card } from "react-bootstrap";
-import VideoPlayer from "./VideoPlayer";
-import Options from "./Options";
-import Notifications from "./Notifications";
+import VideoPlayer from "./VideoCallWindow/VideoPlayer";
+import Options from "./VideoCallWindow/Options";
+import Notifications from "./VideoCallWindow/Notifications";
 
 function Video() {
   return (

@@ -3,7 +3,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Row, Col, Card } from "react-bootstrap";
-import { SocketContext } from "../SocketContext";
+import { SocketContext } from "../../SocketContext";
 import Alert from "react-bootstrap/Alert";
 import {
   TwitterIcon,
