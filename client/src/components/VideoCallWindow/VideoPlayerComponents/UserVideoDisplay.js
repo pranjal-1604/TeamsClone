@@ -1,10 +1,15 @@
-import { Card,Col } from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
 import { SocketContext } from "../../../SocketContext";
 import { useContext } from "react";
 
-function UserVideoDisplay() {
+/**
+ *
+ * @returns Conditional rendering of user's video only once call is accepted and until it ends.
+ */
 
-  const { callAccepted, userVideo, callEnded, call } = useContext(SocketContext);
+function UserVideoDisplay() {
+  const { callAccepted, userVideo, callEnded, call } =
+    useContext(SocketContext);
 
   return (
     <>

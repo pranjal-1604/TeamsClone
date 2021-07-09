@@ -1,12 +1,12 @@
 import Video from "./components/Video";
 import { Route, Switch } from "react-router-dom";
-import Welcome from "./components/Welcome";
+import HomePage from "./components/HomePage";
 
 function App() {
   return (
     <div>
       <Switch>
-        <Route exact path="/" component={Welcome} />
+        <Route exact path="/" component={HomePage} />
         <Route exact path="/video_call" component={Video} />
       </Switch>
     </div>
