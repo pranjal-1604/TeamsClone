@@ -4,7 +4,7 @@ import { Row, Col } from "react-bootstrap";
 
 /**
  * 
- * @returns Welcome note greeting the user
+ * @returns {Typewriter} Welcome note greeting the user
  */
 
 function WelcomeNote()

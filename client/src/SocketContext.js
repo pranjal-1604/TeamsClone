@@ -17,7 +17,7 @@ const ContextProvider = ({ children }) => {
   const [userVideoStatus, setUserVideoStatus] = useState();
   const [myMicStatus, setMyMicStatus] = useState(true);
   const [userMicStatus, setUserMicStatus] = useState();
-  const [show, setShow] = useState(false);
+ 
 
   const myVideo = useRef();
   const userVideo = useRef();
@@ -59,14 +59,6 @@ const ContextProvider = ({ children }) => {
       setCall({ isReceivingCall: true, from, name: callerName, signal });
     });
   }, []);
-
-
-  const handleVisible = () => {
-    setShow(true);
-    setTimeout(() => {
-      setShow(false);
-    }, 1000);
-  };
 
 
   const answerCall = () => {
@@ -178,10 +170,7 @@ const ContextProvider = ({ children }) => {
         updateVideo,
         myMicStatus,
         userMicStatus,
-        updateMic,
-        show,
-        setShow,
-        handleVisible,
+        updateMic
       }}
     >
       {children}

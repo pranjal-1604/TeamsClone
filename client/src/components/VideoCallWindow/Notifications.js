@@ -6,7 +6,7 @@ import Teams from "../../media/teams.mp3";
 import VideoIcon from "../../media/video-call-icon.jpg";
 
 /** 
- * @returns A pop-up modal when a user receives permission request from the other user to join the meet.
+ * @returns {Modal} A pop-up modal when a user receives permission request from the other user to join the meet.
  * Bootstrap modal pops up displaying the name of the person who is making the request with two options of either 
    accepting or rejecting the call.
  * A caller tune also plays notifying the user of the request.

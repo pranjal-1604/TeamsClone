@@ -4,7 +4,7 @@ import { useContext } from "react";
 
 /**
  *
- * @returns Conditional rendering of user's video only once call is accepted and until it ends.
+ * @returns {video} Conditional rendering of user's video once call is accepted until it ends.
  */
 
 function UserVideoDisplay() {

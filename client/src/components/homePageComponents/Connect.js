@@ -5,7 +5,7 @@ import VideoConnect from "../../media/video connect.jpg";
 import VideoChat from "../../media/video chat icon.png";
 
 /**
- * @returns A button clicking which opens up the video call window in a new tab.        
+ * @returns {Button} Clicking which opens up the video call window in a new tab.        
  */
 
 function Connect()

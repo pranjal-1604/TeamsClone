@@ -5,7 +5,7 @@ import { SocketContext } from "../../../SocketContext";
 
 /**
  *
- * @returns Conditionally renders users video and audio once allowed access.
+ * @returns {video,Button} Conditionally renders users video and audio once allowed access.
  * Has audio/video mute buttons.
  */
 

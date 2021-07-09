@@ -6,7 +6,7 @@ import { SocketContext } from "../../../SocketContext";
 
 /**
  *
- * @returns A form to paste in the ID of the meeting to be joined and a button to initate permission request to join the meeting.
+ * @returns {Form, Button} A form to paste in the ID of the meeting to be joined and a button to initate permission request to join the meeting.
  */
 
 function JoinMeet() {
