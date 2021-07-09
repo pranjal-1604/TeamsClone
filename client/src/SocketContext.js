@@ -13,8 +13,8 @@ const ContextProvider = ({ children }) => {
   const [name, setName] = useState("");
   const [call, setCall] = useState({});
   const [me, setMe] = useState("");
-  const [myVdoStatus, setMyVdoStatus] = useState(true);
-  const [userVdoStatus, setUserVdoStatus] = useState();
+  const [myVideoStatus, setMyVideoStatus] = useState(true);
+  const [userVideoStatus, setUserVideoStatus] = useState();
   const [myMicStatus, setMyMicStatus] = useState(true);
   const [userMicStatus, setUserMicStatus] = useState();
   const [show, setShow] = useState(false);
@@ -42,14 +42,14 @@ const ContextProvider = ({ children }) => {
       if (currentMediaStatus !== null || currentMediaStatus !== []) {
         switch (type) {
           case "video":
-            setUserVdoStatus(currentMediaStatus);
+            setUserVideoStatus(currentMediaStatus);
             break;
           case "mic":
             setUserMicStatus(currentMediaStatus);
             break;
           default:
             setUserMicStatus(currentMediaStatus[0]);
-            setUserVdoStatus(currentMediaStatus[1]);
+            setUserVideoStatus(currentMediaStatus[1]);
             break;
         }
       }
@@ -80,7 +80,7 @@ const ContextProvider = ({ children }) => {
         signal: data,
         to: call.from,
         type: "both",
-        myMediaStatus: [myMicStatus, myVdoStatus],
+        myMediaStatus: [myMicStatus, myVideoStatus],
       });
     });
     
@@ -117,7 +117,7 @@ const ContextProvider = ({ children }) => {
       peer.signal(signal);
       socket.emit("updateMyMedia", {
         type: "both",
-        currentMediaStatus: [myMicStatus, myVdoStatus],
+        currentMediaStatus: [myMicStatus, myVideoStatus],
       });
     });
 
@@ -126,7 +126,7 @@ const ContextProvider = ({ children }) => {
  
   // switching camera on/off
   const updateVideo = () => {
-    setMyVdoStatus((currentStatus) => {
+    setMyVideoStatus((currentStatus) => {
       socket.emit("updateMyMedia", {
         type: "video",
         currentMediaStatus: !currentStatus,
@@ -171,10 +171,10 @@ const ContextProvider = ({ children }) => {
         callUser,
         leaveCall,
         answerCall,
-        myVdoStatus,
-        setMyVdoStatus,
-        userVdoStatus,
-        setUserVdoStatus,
+        myVideoStatus,
+        setMyVideoStatus,
+        userVideoStatus,
+        setUserVideoStatus,
         updateVideo,
         myMicStatus,
         userMicStatus,

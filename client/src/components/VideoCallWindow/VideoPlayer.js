@@ -12,7 +12,7 @@ function VideoPlayer() {
     callEnded,
     stream,
     call,
-    myVdoStatus,
+    myVideoStatus,
     updateVideo,
     myMicStatus,
     updateMic,
@@ -65,9 +65,9 @@ function VideoPlayer() {
                     style={{ borderRadius: "30px" }}
                   >
                     <i
-                      className={`fas fa-video${myVdoStatus ? "" : "-slash"}`}
+                      className={`fas fa-video${myVideoStatus ? "" : "-slash"}`}
                       style={{ transform: "scaleX(-1)", color: "black" }}
-                      aria-label={`${myVdoStatus ? "video on" : "video off"}`}
+                      aria-label={`${myVideoStatus ? "video on" : "video off"}`}
                       aria-hidden="true"
                     ></i>
                   </Button>
