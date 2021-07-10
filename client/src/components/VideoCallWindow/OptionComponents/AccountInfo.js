@@ -16,7 +16,7 @@ import {
 
 /**
  *
- * @returns {Form, CopytoClipboard , Alert ShareIcons}
+ * @returns {Form, CopytoClipboard , Alert, ShareIcons}
  *Form to enter name
  *Copy to clipboard for copying meeting ID
  *Alert to notify ID is copied

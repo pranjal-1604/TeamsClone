@@ -73,7 +73,7 @@ function MyVideoDisplay() {
                 >
                   {/* Switch icons relative to current video status */}
                   <i
-                    className={`fas fa-video${myVideoStatus ? "" : "-slash"}`}
+                    className={`fa fa-rotate-180 fa-video${myVideoStatus ? "" : "-slash"}`}
                     style={{ transform: "scaleX(-1)", color: "black" }}
                     aria-label={`${myVideoStatus ? "video on" : "video off"}`}
                     aria-hidden="true"
