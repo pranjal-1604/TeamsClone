@@ -42,7 +42,7 @@ function AccountInfo() {
         <Form inline>
           {/* Form for entering name */}
           <Form.Control
-            placeholder="Enter Name"
+            placeholder="Enter your name"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -50,7 +50,7 @@ function AccountInfo() {
           {/* Copy ID to clipboard */}
           <CopyToClipboard text={me}>
             <Button variant="primary" onClick={handleVisible}>
-              Copy Meeting ID
+              Copy your ID
               <i
                 className="material-icons content-copy"
                 style={{ verticalAlign: "middle", marginLeft: "6px" }}
@@ -60,7 +60,7 @@ function AccountInfo() {
             </Button>
           </CopyToClipboard>
 
-          {/* Conditionally render alert when meeting ID is copied */}
+          {/* Conditionally render alert when ID is copied */}
           {show && (
             <Alert
               style={{
@@ -78,7 +78,7 @@ function AccountInfo() {
                 >
                   check_circle
                 </i>
-                Code Copied successfully
+                ID copied successfully
               </p>
             </Alert>
           )}
