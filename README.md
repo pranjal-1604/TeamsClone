@@ -1,7 +1,7 @@
 # Microsoft Teams Clone
 
 This is an application that allows two users to connect over a video call. Users also have the capability to toggle microphone and video camera on or off.
-Meeting ID can be shared instantly via shortcuts over common social media platforms (Whatsapp,Facebook,Twitter).
+Meeting ID can be shared instantly via shortcuts over common social media platforms (Whatsapp,Facebook,Twitter). A caller tune notifies the user of an incoming call.
 
 **Website link** - ***https://ms-teams-clone-video-chat.netlify.app/***
 
